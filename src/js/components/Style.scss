@@ -1,4 +1,4 @@
-$body-color: red;
+@import "~bootstrap/scss/bootstrap";
 
 html, body {
   height: 100%;
@@ -33,6 +33,7 @@ html, body {
     font-size: x-large;
     font-weight: 600;
     height: 150px;
+
   }
   #buttons {
     padding: 15px 32px;

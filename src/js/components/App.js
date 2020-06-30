@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { LoremIpsum } from 'react-lorem-ipsum';;
 import './Style.scss';
-
+import bootstrap from 'bootstrap';
 const QuoteBox = (props) => {
   
   return <div className='mx-auto container' id='QuoteBox'>
     <div className='row'>
-    <p className='text-center' id='quote'><i class="fas fa-quote-left"></i> Limitations live only in our minds. But if we use our imaginations, our possibilities become limitless. <i class="fas fa-quote-right"></i></p>
+    <p className='text-center' id='quote'><i className="fas fa-quote-left"></i> Limitations live only in our minds. But if we use our imaginations, our possibilities become limitless. <i class="fas fa-quote-right"></i></p>
 
     </div>
     <div className='row'>

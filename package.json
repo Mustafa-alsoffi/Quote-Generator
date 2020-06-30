@@ -25,8 +25,10 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "bootstrap": "^5.0.0-alpha1",
     "css-loader": "^3.6.0",
     "node-sass": "^4.14.1",
+    "popper.js": "^1.16.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-lorem-ipsum": "^1.4.4",
