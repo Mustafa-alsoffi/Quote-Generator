@@ -20,28 +20,28 @@ html, body {
   min-height: 100%;
   margin: 0px;
   //Child 
-  #QuoteBox {
-  background-color: salmon;
-  width: 500px;
+  #quote-box {
+  background-color: white;
+  width: 450px;
   max-width: 100%;
-  height: fit-content;
+  min-height: fit-content;
   
   // sub-child 
-  #quote{
-    background-color: yellowgreen;
-    margin-top: 40px;
+  #text{
+
+    padding-top: 30px;
     font-size: x-large;
     font-weight: 600;
-    height: 150px;
+    animation-name: fade;
+    animation-duration: 2s;
 
   }
   #buttons {
     padding: 15px 32px;
-    //sub-Child
-    .button {
-    padding: 5px 10px;
 
-  
+  a{
+    margin: auto 3px;
+    min-width: 40px;
   }
   }
 
@@ -53,4 +53,10 @@ html, body {
   color: white;
 }
 
+}
+
+
+@keyframes fade{
+from{opacity: 0;}
+to {opacity: 1;}
 }
