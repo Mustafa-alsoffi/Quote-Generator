@@ -14,7 +14,7 @@ class QuoteBox extends Component {
     this.state = {
       quote: this.props.quotes,
       color: this.props.colors,
-      index: Math.floor((Math.random() * 3))
+      index: this.props.index
     };
 
   
@@ -38,7 +38,7 @@ class QuoteBox extends Component {
 
     </div>
     <div className='row'>
-      <p className="text-right" id="author">This author</p>
+      <p className={"text-right text-" + this.state.color[this.state.index]} id="author">This author</p>
     </div>
     <div className='row justify-content-evenly' id='buttons'>
     {/* Share buttons */}
@@ -72,7 +72,7 @@ class App extends Component {
   }
 
   handleClick(newIndex) {
-    console.log('Clicked!');
+
     
     this.setState(
       {
@@ -87,11 +87,12 @@ class App extends Component {
 
   render() {
   
-
+    console.log('Look here ' + this.state.index);
+    
     return (
-      <div className={'bg-'+this.state.colors[this.state.index] + ' text-' + this.state.colors[this.state.index] + " container-fluid align-items-center"} id='App'>
+      <div className={'bg-'+this.state.colors[this.state.index] + " container-fluid align-items-center"} id='App'>
         {/* Next trial: NO indexing, just send the whole array */}
-          <QuoteBox quotes={this.state.quotes} colors={this.state.colors} handleClick={this.handleClick.bind(this)}/>
+          <QuoteBox quotes={this.state.quotes} colors={this.state.colors} handleClick={this.handleClick.bind(this)} index={this.state.index}/>
           <p className='text-center font-monospace' id='creator'>by Mustafa</p>
           {/* <LoremIpsum p={2} className='text-center'/> */}
        
