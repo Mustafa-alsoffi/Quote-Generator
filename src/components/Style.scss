@@ -7,11 +7,17 @@ html, body {
   background-color: wheat;
 }
 
-
-
+#App {
+  transition: ease-in background-color 2s;
+  
+}
+.btn a {
+  transition: ease-in border-color 2s;
+  transition: ease-in background-color 2s;
+}
 #App {
 
-  background-color: teal;
+
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -19,29 +25,34 @@ html, body {
   height: 100vh;
   min-height: 100%;
   margin: 0px;
+
   //Child 
   #quote-box {
   background-color: white;
   width: 450px;
   max-width: 100%;
   min-height: fit-content;
-  
+ 
   // sub-child 
   #text{
 
     padding-top: 30px;
     font-size: x-large;
     font-weight: 600;
-    animation-name: fade;
-    animation-duration: 2s;
+    
+   
+ 
+    #author{
 
+    }
   }
   #buttons {
     padding: 15px 32px;
-
+  
   a{
     margin: auto 3px;
     min-width: 40px;
+    
   }
   }
 
@@ -51,12 +62,24 @@ html, body {
   padding-top: 1em;
   font-size: small;
   color: white;
-}
 
 }
 
+}
 
-@keyframes fade{
-from{opacity: 0;}
-to {opacity: 1;}
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter-active {
+  opacity: 1;
+  transition: ease-in opacity 2s;
+}
+
+.example-exit {
+  opacity: 0.01;
+}
+.example-exit-active {
+  opacity: 1;
+  transition: opacity 2s ease-in;
 }

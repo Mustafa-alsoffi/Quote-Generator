@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import { LoremIpsum } from 'react-lorem-ipsum';;
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import './Style.scss';
 // import bootstrap from 'bootstrap';
-
+// import { LoremIpsum } from 'react-lorem-ipsum';
 
 class QuoteBox extends Component {
     
@@ -14,32 +14,47 @@ class QuoteBox extends Component {
     this.state = {
       quote: this.props.quotes,
       color: this.props.colors,
-      index: this.props.index
+      index: this.props.index,
+      trans: false
     };
-
-  
+    
+    
   }
 
   handleClick() {
+     
     let randomIndex = Math.floor((Math.random() * 3));
     this.props.handleClick(randomIndex)
      this.setState(
        {
-       index: randomIndex
+       index: randomIndex,
+       trans: !this.state.trans
        }
      )
+
+    
   }
 
   render() {
 
+
   return ( <div className='mx-auto container model' id='quote-box'>
+
+   
+    <CSSTransition in={this.state.trans} timeout={2000} classNames="example">
+ <div>
     <div className='row'>
+
     <p className={'text-' + this.state.color[this.state.index] + ' text-center'} id='text'><i className="fas fa-quote-left"></i> {this.state.quote[this.state.index]} <i className="fas fa-quote-right"></i></p>
 
     </div>
+
     <div className='row'>
-      <p className={"text-right text-" + this.state.color[this.state.index]} id="author">This author</p>
+      <p ref={this.wrapperRef} className={"wrapper text-right text-" + this.state.color[this.state.index]} id="author">This author</p>
     </div>
+</div>
+    </CSSTransition>
+  
     <div className='row justify-content-evenly' id='buttons'>
     {/* Share buttons */}
     <div className='col mr-auto'>
@@ -51,14 +66,17 @@ class QuoteBox extends Component {
 
   </div>
   </div>);
+
   }
+
+
 }
 
 class App extends Component {
 
   constructor(props) {
     super(props);
-
+    // this.wrapperRef = React.createRef();
     this.state = {
       quotes: ['Limitations live only in our minds. But if we use our imaginations, our possibilities become limitless.',
       'The most difficult thing is the decision to act, the rest is merely tenacity',
@@ -80,7 +98,8 @@ class App extends Component {
       }
       
     )
-
+      // const wrapper = this.wrapperRef.current;
+      // wrapper.classList.toggle()
    
   }
 
@@ -93,7 +112,7 @@ class App extends Component {
       <div className={'bg-'+this.state.colors[this.state.index] + " container-fluid align-items-center"} id='App'>
         {/* Next trial: NO indexing, just send the whole array */}
           <QuoteBox quotes={this.state.quotes} colors={this.state.colors} handleClick={this.handleClick.bind(this)} index={this.state.index}/>
-          <p className='text-center font-monospace' id='creator'>by Mustafa</p>
+          <span className='text-center font-monospace' id='creator'>by Mustafa</span>
           {/* <LoremIpsum p={2} className='text-center'/> */}
        
 
