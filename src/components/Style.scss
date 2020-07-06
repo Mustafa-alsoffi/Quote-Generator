@@ -7,13 +7,18 @@ html, body {
   background-color: wheat;
 }
 
-#App {
-  transition: ease-in background-color 2s;
+* {
+  transition: ease-in background-color 1s;
   
 }
-.btn a {
-  transition: ease-in border-color 2s;
-  transition: ease-in background-color 2s;
+
+ .btn {
+
+  transition: ease-in background-color 1s;
+}
+.btn:focus {
+  outline: none;
+  box-shadow: none;
 }
 #App {
 
@@ -39,7 +44,7 @@ html, body {
     padding-top: 30px;
     font-size: x-large;
     font-weight: 600;
-    
+   
    
  
     #author{
@@ -73,7 +78,7 @@ html, body {
 
 .example-enter-active {
   opacity: 1;
-  transition: ease-in opacity 2s;
+  transition: opacity 1s;
 }
 
 .example-exit {
@@ -81,5 +86,6 @@ html, body {
 }
 .example-exit-active {
   opacity: 1;
-  transition: opacity 2s ease-in;
+  transition: opacity 1s;
 }
+
